@@ -142,12 +142,12 @@ public class SpecListTest {
     public void testSortListInteger() throws Exception {
 
         SpecList<Integer > specList= new SpecList<Integer>();
-
+        List<Integer > outputList= new SpecList<Integer>();
         specList.add(-2);
         specList.add(5);
         specList.add(1);
         specList.add(3);
-        specList.sortList(1);
+        outputList=specList.sortList(1);
 
         List<Integer> expected=new ArrayList<Integer>();
         expected.add(-2);
@@ -155,13 +155,14 @@ public class SpecListTest {
         expected.add(3);
         expected.add(5);
 
-        assertEquals(expected,specList);
+       assertEquals(expected,outputList);
+
     }
     @Test
     public void testSortListString() throws Exception {
 
         SpecList<String > specList= new SpecList<String>();
-
+        List<String > outputList= new SpecList<String>();
         specList.add("test0");
         specList.add("test2");
         specList.add("test5");
@@ -169,7 +170,7 @@ public class SpecListTest {
         specList.add("test3");
         specList.add("test4");
 
-        specList.sortList(1);
+       outputList= specList.sortList(1);
 
         List<String> expected=new SpecList<String>();
         expected.add("test0");
@@ -180,19 +181,19 @@ public class SpecListTest {
         expected.add("test5");
 
 
-        assertEquals(expected,specList);
+        assertEquals(expected,outputList);
     }
     @Test
     public void testSortListDouble() throws Exception {
 
         SpecList<Double > specList= new SpecList<Double>();
-
+        List<Double > outputList= new SpecList<Double>();
         specList.add(7.5);
         specList.add(1.7);
         specList.add(0.3);
         specList.add(1.5);
 
-        specList.sortList(1);
+        outputList=specList.sortList(1);
 
         List<Double> expected=new SpecList<Double>();
         expected.add(0.3);
@@ -200,7 +201,7 @@ public class SpecListTest {
         expected.add(1.7);
         expected.add(7.5);
 
-        assertEquals(expected,specList);
+        assertEquals(expected,outputList);
 
     }
 }

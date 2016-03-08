@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -11,6 +10,7 @@ public class main {
     public static void main(String args[]){
 
         SpecList<Integer > specList= new SpecList<Integer>();
+        List<Integer > outputList= new SpecList<Integer>();
 
         specList.add(-2);
         specList.add(5);
@@ -18,39 +18,30 @@ public class main {
         specList.add(3);
 
 
-        System.out.println(specList);
+        System.out.println("List1(SpecList\n"+specList);
 
-        specList.sortList(-1);
-        System.out.println(specList);
-        specList.sortList(1);
-        System.out.println(specList);
+        outputList= specList.sortList(-1);
+        System.out.println("List1 Decreasing\n"+outputList);
+        outputList= specList.sortList(1);
+        System.out.println("List1 Increasing\n"+outputList);
 
         List<Integer> tmp =new ArrayList<Integer>();
-        List<String> temp=new LinkedList<String>();
-        temp.add("sefa");
-        temp.add("bb");
-        temp.add("sefa2");
 
         tmp.add(3);
         tmp.add(2);
         tmp.add(0);
-        System.out.println(tmp);
-        SpecList<String > specList1= new SpecList<String>();
+        System.out.println("List2(Arraylist)\n"+tmp);
 
-        specList1.add("sefa");
-        specList1.add("sefasdaa");
-        specList1.add("sefa");
+        outputList=specList.getIntersectList(tmp);
+        System.out.println("IntersectList is between List1 and List2\n"+outputList);
 
-        specList1.add("sefa2");
-        specList1.add("sefa1");
-        specList1.add("sef3");
-        specList1.add("sef3sadasd");
-        specList1.sortList(-1);
-        System.out.println(specList1);
-        specList1.sortList(1);
-        System.out.println(specList1);
-        temp=specList1.getIntersectList(temp);
-        System.out.println(temp);
+        specList.addAllAtHead(tmp);
+        System.out.println("List2 added to List1\nList1\n"+specList);
+
+        outputList=specList.getIntersectList(tmp);
+        System.out.println("IntersectList is between new List1 and List2\n"+outputList);
+
+
 
     }
 }
